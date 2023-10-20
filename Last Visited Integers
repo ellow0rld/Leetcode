@@ -1,0 +1,23 @@
+class Solution(object):
+    def lastVisitedIntegers(self, words):
+        """
+        :type words: List[str]
+        :rtype: List[int]
+        """
+        stk = []
+        ans = []
+        count = 0
+        for i in range (len(words)):
+            if(words[i]!="prev"):
+                count = 0
+                stk.append(words[i])
+            else:
+                count+=1
+                try:
+                    ans.append(stk[(0-count)])
+                except:
+                    ans.append("-1")
+        k = []
+        for i in ans:
+            k.append(int(i))
+        return k
