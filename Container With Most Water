@@ -1,0 +1,19 @@
+class Solution(object):
+    def maxArea(self, height):
+        """
+        :type height: List[int]
+        :rtype: int
+        """
+        i = 0
+        area = []
+        j = len(height)-1
+        while(i<j):
+            start = height[i]
+            end = height[j]
+            area.append(min(start,end)*abs(i-j))
+            if(start<=end):
+                i+=1
+            elif(end<start):
+                j-=1
+        print(area)
+        return max(area)
