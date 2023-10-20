@@ -1,0 +1,21 @@
+class Solution(object):
+    def getRow(self, rowIndex):
+        """
+        :type rowIndex: int
+        :rtype: List[int]
+        """
+        def fac(i):
+            if(i==1):
+                return 1
+            i = i*fac(i-1)
+            return i
+
+        res = []
+        n = rowIndex
+        for r in range(rowIndex):
+            if(r == 0):
+                res.append(1)
+            else:
+                res.append(fac(n)/(fac(r)*fac(n-r)))
+        res.append(1)
+        return res
