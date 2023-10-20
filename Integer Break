@@ -1,0 +1,18 @@
+class Solution(object):
+    def integerBreak(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        def recur(n):
+            if(n==2 or n==3):
+                return n-1
+            elif(n==4):
+                return 4
+            else:
+                if((n-3)>4):
+                    return recur(n-3)*(3)
+                else:
+                    return (n-3)*3
+            return 0
+        return recur(n)
